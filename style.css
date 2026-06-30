@@ -1,1 +1,442 @@
+/* ===========================
+   PLAYER ONE DESIGN SYSTEM
+=========================== */
 
+:root{
+
+--bg:#080812;
+--surface:#141428;
+--surface-light:#1b1b36;
+
+--cyan:#00E5FF;
+--purple:#7C3AED;
+--pink:#FF2D95;
+--yellow:#FFD400;
+--green:#3CFF87;
+
+--text:#ffffff;
+--muted:#B7B7CC;
+
+--border:#2d2d4a;
+
+--shadow:
+0 0 10px rgba(0,229,255,.35),
+0 0 25px rgba(124,58,237,.20);
+
+--radius:18px;
+
+--transition:.25s ease;
+
+--max-width:1200px;
+
+}
+
+/* =========================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+background:var(--bg);
+
+color:var(--text);
+
+font-family:Inter,sans-serif;
+
+overflow-x:hidden;
+
+line-height:1.6;
+
+}
+
+/* ===========================
+BACKGROUND
+=========================== */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(circle at top,#33196b 0%,transparent 45%),
+
+linear-gradient(#080812,#09091a);
+
+z-index:-3;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background-image:
+
+linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
+
+linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+
+background-size:45px 45px;
+
+opacity:.25;
+
+z-index:-2;
+
+}
+
+/* ===========================
+SCANLINES
+=========================== */
+
+.scanlines{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+background:
+
+repeating-linear-gradient(
+
+0deg,
+
+rgba(255,255,255,.03),
+
+rgba(255,255,255,.03) 2px,
+
+transparent 2px,
+
+transparent 5px
+
+);
+
+animation:flicker .15s infinite;
+
+opacity:.2;
+
+z-index:999;
+
+}
+
+@keyframes flicker{
+
+50%{
+
+opacity:.16;
+
+}
+
+}
+
+/* ===========================
+NAVBAR
+=========================== */
+
+.navbar{
+
+position:fixed;
+
+top:0;
+
+width:100%;
+
+height:80px;
+
+padding:0 40px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+backdrop-filter:blur(14px);
+
+background:rgba(8,8,18,.75);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+z-index:500;
+
+}
+
+.logo{
+
+font-family:"Press Start 2P";
+
+font-size:.9rem;
+
+color:var(--yellow);
+
+text-shadow:0 0 15px var(--yellow);
+
+}
+
+.nav-links{
+
+display:flex;
+
+gap:35px;
+
+list-style:none;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+
+font-family:"Press Start 2P";
+
+font-size:.6rem;
+
+color:white;
+
+transition:var(--transition);
+
+}
+
+.nav-links a:hover{
+
+color:var(--cyan);
+
+text-shadow:0 0 15px var(--cyan);
+
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+
+max-width:var(--max-width);
+
+margin:auto;
+
+padding-top:170px;
+
+padding-bottom:120px;
+
+display:grid;
+
+grid-template-columns:1fr 420px;
+
+gap:70px;
+
+align-items:center;
+
+}
+
+.player{
+
+font-family:"Press Start 2P";
+
+color:var(--green);
+
+font-size:.8rem;
+
+margin-bottom:28px;
+
+animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+50%{
+
+opacity:.2;
+
+}
+
+}
+
+.hero h1{
+
+font-family:"Press Start 2P";
+
+font-size:3.8rem;
+
+line-height:1.25;
+
+margin-bottom:25px;
+
+}
+
+.hero h1 span{
+
+display:block;
+
+color:var(--cyan);
+
+text-shadow:
+
+0 0 12px var(--cyan),
+
+0 0 28px var(--cyan);
+
+}
+
+.hero h2{
+
+font-size:1.5rem;
+
+margin-bottom:25px;
+
+color:var(--pink);
+
+font-weight:700;
+
+}
+
+.hero-description{
+
+font-size:1.1rem;
+
+max-width:640px;
+
+color:var(--muted);
+
+margin-bottom:45px;
+
+}
+
+/* ===========================
+BUTTONS
+=========================== */
+
+.hero-buttons{
+
+display:flex;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:16px 28px;
+
+border-radius:14px;
+
+font-weight:700;
+
+text-decoration:none;
+
+transition:var(--transition);
+
+}
+
+.primary{
+
+background:var(--cyan);
+
+color:#000;
+
+}
+
+.primary:hover{
+
+transform:translateY(-5px);
+
+box-shadow:var(--shadow);
+
+}
+
+.secondary{
+
+border:2px solid var(--cyan);
+
+color:white;
+
+}
+
+.secondary:hover{
+
+background:var(--cyan);
+
+color:#000;
+
+}
+
+/* ===========================
+ARCADE CABINET
+=========================== */
+
+.arcade-machine{
+
+background:linear-gradient(
+
+180deg,
+
+#24244d,
+
+#131329
+
+);
+
+border:4px solid var(--cyan);
+
+border-radius:24px;
+
+padding:35px;
+
+box-shadow:var(--shadow);
+
+}
+
+.arcade-machine h3{
+
+font-family:"Press Start 2P";
+
+color:var(--yellow);
+
+margin-bottom:30px;
+
+font-size:.8rem;
+
+}
+
+.arcade-machine ul{
+
+list-style:none;
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.arcade-machine li{
+
+color:var(--green);
+
+font-weight:700;
+
+}
